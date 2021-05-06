@@ -1,0 +1,6 @@
+ 4146  vault write gcp_one/config credentials=@gcp.json
+ 4147  vault write gcp_one/roleset/project-factory-roleset project="concrete-flare-310318" secret-type="service_account_key" bindings=@bindings.hcl
+ 4148  vault write gcp_one/roleset/project-token-roleset project="concrete-flare-310318" secret_type="access_token" token_scopes="https://www.googleapis.com/auth/cloud-platform" bindings=@bindings.hcl
+ 4149  vault write gcp_one/roleset/project-factory-roleset project="concrete-flare-310318" secret_type="service_account_key" bindings=@bindings.hcl
+ 4150  git clone https://github.com/alexandarp/terraform-vault-gcp-dynamic-secret.git
+ 4151  vault read gcp_one/token/project-token-roleset
